@@ -23,6 +23,7 @@ let currentPrice = document.createElement('h3')
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
+    renderMain(gameArray[0])
 }
 
 const renderMain = (gameObj) => {
