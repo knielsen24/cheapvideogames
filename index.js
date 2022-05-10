@@ -32,6 +32,8 @@ const renderMain = (gameArray) => {
     sale.innerText = `Current Price  $${salePrice}`
 
     mainCard.append(name, image, price, sale)
+    reviewList.innerHTML = ''
+    
 }
 
 
@@ -62,11 +64,23 @@ const randomGameButton = (gameArray) => {
 }
 
 const formElement = document.getElementById('form')
+const reviewList = document.getElementById('review-list')
+
 
 formElement.addEventListener('submit', (e) => {
     e.preventDefault()
     let post = document.createElement('li')
     post.textContent = e.target.usrinput.value
-    formElement.append(post), formElement.reset()
+    reviewList.append(post)
+    formElement.reset()
 })
 
+const reviewPlaceHolderText = () => {
+    const x = 'Holy smokes, what did you think of this game?!'
+    const y = `Gee Whilikers, I can't believe this outsold Contra!`
+    const z = `Where's the beef? Where's the beef? It's in the game!"`
+
+}
+
+
+// Ideas for tomorrow, add the like button, if the submit form is empty do not create an empty li, make our own json database to hold reviews and likes, get everything on cards
