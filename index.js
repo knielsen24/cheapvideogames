@@ -61,19 +61,12 @@ const randomGameButton = (gameArray) => {
     })
 }
 
-    
+const formElement = document.getElementById('form')
 
-
-
-
-
-// gameArray Items
-//     title, normal price, sale price, savings percentage
-//     total savings, thumbnail 
-
-// function for rendermain card
-//     like button
-// function to createbutton 
-// function to create form
-// function total savings*/
+formElement.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let post = document.createElement('li')
+    post.textContent = e.target.usrinput.value
+    formElement.append(post), formElement.reset()
+})
 
