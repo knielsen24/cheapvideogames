@@ -6,8 +6,8 @@ let mainCard = document.querySelector('#main-card')
 fetch(url)
     .then(r => r.json())
     .then(gameArray => {
-        renderMain(gameArray)
-        renderList(gameArray)
+        //randomIndex(gameArray)
+        renderObj(gameArray)
         randomGameButton(gameArray)
     })
 
@@ -16,11 +16,17 @@ let image = document.createElement('img')
 let price = document.createElement('h3')
 let currentPrice = document.createElement('h3')
 
-const renderMain = (gameArray) => {
+
+// const randomIndex = (gameArray) => {
+//     return 
     
-    let index = Math.floor(Math.random() * (gameArray.length - 1))
-    const {title, thumb, normalPrice, salePrice} = gameArray[index]
+// }
     
+
+const renderMain = (gameObj) => {
+    //let index = Math.floor(Math.random() * (gameArray.length - 1))
+    console.log(gameObj)
+    const {title, thumb, normalPrice, salePrice} = gameObj
     nameMain.innerText = title.toString()
     image.src = thumb.toString()
     price.innerText = `msrp $${normalPrice}`
@@ -31,32 +37,18 @@ const renderMain = (gameArray) => {
     
 }
 
-// const renderClick = (gameArray) => {
-//     const {title, thumb, normalPrice, salePrice} = gameArray
-//     nameMain.innerText = title.toString()
-//     image.src = thumb.toString()
-//     price.innerText = `msrp $${normalPrice}`
-//     currentPrice.innerText = `Current Price  $${salePrice}`
-//     mainCard.append(nameMain, image, currentPrice, price)
-// }
 
+const renderObj = (gameArray) => gameArray.forEach(renderList)
 
-const clickTitle = (titleName) => {
-    titleName.addEventListener('click', (e) => {
-        console.log(titleName)
+const renderList = (gameObj) => {
+    //console.log(gameObj)
+    const list = document.getElementById('list')
+    const name = document.createElement('li')
+    name.textContent = gameObj.title
+    list.append(name)
+    name.addEventListener('click', (e) => {
         e.target.title.value
-        
-    });
-}
-
-const renderList = (gameArray) => {
-    gameArray.forEach(gameObj => {
-        console.log(gameObj)
-        const list = document.getElementById('list')
-        const name = document.createElement('li')
-        name.textContent = gameObj.title
-        list.append(name)
-        clickTitle(name)
+        renderMain(gameObj)            
     });
 }
 
