@@ -2,10 +2,6 @@ const url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 
 let mainCard = document.querySelector('#main-card')
 
-const getRandomInt = (max) => {
-    return Math.floor(Math.random() * max)
-}
-
 
 fetch(url)
     .then(r => r.json())
@@ -15,37 +11,47 @@ fetch(url)
         randomGameButton(gameArray)
     })
 
-let name = document.createElement('h3')
+let nameMain = document.createElement('h3')
 let image = document.createElement('img')
 let price = document.createElement('h3')
-let sale = document.createElement('h3')
+let currentPrice = document.createElement('h3')
 
 const renderMain = (gameArray) => {
     
-    let r = getRandomInt(gameArray.length - 1)
-
-    const {title, thumb, normalPrice, salePrice} = gameArray[r]
+    let index = Math.floor(Math.random() * (gameArray.length - 1))
+    const {title, thumb, normalPrice, salePrice} = gameArray[index]
     
-    name.innerText = title.toString()
+    nameMain.innerText = title.toString()
     image.src = thumb.toString()
     price.innerText = `msrp $${normalPrice}`
-    sale.innerText = `Current Price  $${salePrice}`
+    currentPrice.innerText = `Current Price  $${salePrice}`
 
-    mainCard.append(name, image, price, sale)
+    mainCard.append(nameMain, image, currentPrice, price)
     reviewList.innerHTML = ''
     
 }
 
+// const renderClick = (gameArray) => {
+//     const {title, thumb, normalPrice, salePrice} = gameArray
+//     nameMain.innerText = title.toString()
+//     image.src = thumb.toString()
+//     price.innerText = `msrp $${normalPrice}`
+//     currentPrice.innerText = `Current Price  $${salePrice}`
+//     mainCard.append(nameMain, image, currentPrice, price)
+// }
+
 
 const clickTitle = (titleName) => {
     titleName.addEventListener('click', (e) => {
-        console.log(e.target.title.value)
+        console.log(titleName)
         e.target.title.value
+        
     });
 }
 
 const renderList = (gameArray) => {
     gameArray.forEach(gameObj => {
+        console.log(gameObj)
         const list = document.getElementById('list')
         const name = document.createElement('li')
         name.textContent = gameObj.title
