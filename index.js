@@ -7,8 +7,8 @@ let mainCard = document.querySelector('#main-card')
 fetch(url)
     .then(r => r.json())
     .then(gameArray => {
-        //randomIndex(gameArray)
         renderObj(gameArray)
+        //randomIndex(gameArray)
     })
 
 let nameMain = document.createElement('h3')
@@ -16,10 +16,12 @@ let image = document.createElement('img')
 let price = document.createElement('h3')
 let currentPrice = document.createElement('h3')
 
-// const randomIndex = (gameArray) => {
-//     return 
+// const randomIndex = (array) => {
+//     console.log(Math.floor(Math.random() * (array.length - 1)))
+//     return Math.floor(Math.random() * (array.length - 1))
 // }
-    
+
+
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
@@ -32,7 +34,6 @@ const renderMain = (gameObj) => {
     image.src = thumb.toString()
     price.innerText = `msrp $${normalPrice}`
     currentPrice.innerText = `Current Price  $${salePrice}`
-
     mainCard.append(nameMain, image, currentPrice, price)
     reviewList.innerHTML = ''
 }
@@ -67,7 +68,7 @@ const reviewList = document.getElementById('review-list')
 formElement.addEventListener('submit', (e) => {
     e.preventDefault()
     let post = document.createElement('li')
-    post.textContent = e.target.usrinput.value
+    post.textContent = `"${e.target.usrinput.value}"`
     reviewList.append(post)
     formElement.reset()
 })
