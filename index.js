@@ -13,8 +13,8 @@ fetch(url)
 
 let nameMain = document.createElement('h3')
 let image = document.createElement('img')
-let price = document.createElement('h3')
-let currentPrice = document.createElement('h3')
+let price = document.createElement('h4')
+let currentPrice = document.createElement('h2')
 
 // const randomIndex = (array) => {
 //     console.log(Math.floor(Math.random() * (array.length - 1)))
@@ -32,8 +32,9 @@ const renderMain = (gameObj) => {
     const {title, thumb, normalPrice, salePrice} = gameObj
     nameMain.innerText = title.toString()
     image.src = thumb.toString()
+    image.id = 'image'
     price.innerText = `msrp $${normalPrice}`
-    currentPrice.innerText = `Current Price  $${salePrice}`
+    currentPrice.innerText = `$${salePrice}`
     mainCard.append(nameMain, image, currentPrice, price)
     reviewList.innerHTML = ''
 }
@@ -82,3 +83,4 @@ const reviewPlaceHolderText = () => {
 
 
 // Ideas for tomorrow, add the like button, if the submit form is empty do not create an empty li, make our own json database to hold reviews and likes, get everything on cards
+// light orange FDD09F, red CB6555, blue B9DDD6, yellow FAE0A8, black 3A3D3C, green B6BF9D

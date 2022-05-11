@@ -1,12 +1,59 @@
+/* light orange FDD09F, red CB6555, blue B9DDD6, yellow FAE0A8, black 3A3D3C, green B6BF9D */
+
+
+
+
+#sickGames{
+    width: 200px
+}
+
+#subbtn{
+    background-color: #FF7F29;
+    color:#ffffff;
+    border-width: 0px;
+    width: 75px;
+    height: 25px;
+    border-radius: 2.5px;
+    
+    
+}
+
+h2{
+    font-size: 2em;
+    color: #FF7F29;
+    
+}
+
+
+h3{
+    background-color: #6B6B6B ;
+    color:#ffffff;
+    border-radius: 2.5px;
+}
+
+
+body{
+    background-color: #ffffff;
+}
+
+#image{
+
+    width: 75%;
+    height: 75%;
+    border-radius: 10px;
+    
+}
 
 h1 {
     text-align: center;
-    font-family: fantasy;
-    background-color: rgb(199, 197, 197);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #B9DDD6;
+    border-radius: 10px;
+    
 }
 
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 
@@ -21,4 +68,5 @@ body {
 
 #form {
     text-align: center;
+    list-style: none;
 }
