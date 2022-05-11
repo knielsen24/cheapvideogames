@@ -7,13 +7,27 @@
     width: 200px
 }
 
-#subbtn{
+.button{
+
     background-color: #FF7F29;
     color:#ffffff;
     border-width: 0px;
-    width: 75px;
+    width: 300px;
     height: 25px;
     border-radius: 2.5px;
+
+}
+
+#randomButton{
+    color:#ffffff;
+}
+
+#subbtn{
+    color:#ffffff;
+    border-width: 0px;
+    width: 75px;
+    
+    
     
     
 }
@@ -69,4 +83,10 @@ body {
 #form {
     text-align: center;
     list-style: none;
+}
+
+#list{
+    text-align: center;
+    list-style: none;
+    
 }

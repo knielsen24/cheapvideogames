@@ -54,6 +54,8 @@ const renderList = (gameObj) => {
 const randomGameButton = (gameArray) => {
     const randomGame = document.createElement('button')
     randomGame.innerText = 'Click Me For A Random Game';
+    randomGame.className = 'button'
+    randomGame.id = 'randomButton'
     document.getElementById('random-game').append(randomGame)
     randomGame.addEventListener('click', (e) => {
         let index = Math.floor(Math.random() * (gameArray.length - 1))
