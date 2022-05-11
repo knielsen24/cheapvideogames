@@ -49,6 +49,7 @@ div{
 h2{
     font-size: 2em;
     color: #FF7F29;
+    padding-bottom: 0px;
     
 }
 
@@ -65,8 +66,8 @@ h3{
 
 body{
     background-color: #ffffff;
-    display: flex;
-    flex-direction: column ;
+    /* display: flex;
+    flex-direction: column ; */
 }
 
 #image{
@@ -134,8 +135,13 @@ body {
 
 h4 {
     background-color: green;
-    color: white;    
-    justify-items: center;
+    color: white;
+    width: auto;    
+    display: inline-block;
+    border-radius: 2.5px;
+    text-align: center;
+    padding: 10px;
+    
 }
 
 #game-titles{
@@ -144,4 +150,10 @@ h4 {
 
 #review-button{
     padding-bottom: 10px;
+}
+
+#divBorder{
+    border: #6b6b6b;
+    border-width: 235px;
+    border-radius: 5px;
 }

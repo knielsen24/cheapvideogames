@@ -34,7 +34,7 @@ const renderMain = (gameObj) => {
     image.id = 'image'
     price.innerText = `MSRP $${normalPrice}`
     currentPrice.innerText = `$${salePrice}`
-    savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)} !`
+    savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
     mainCard.append(nameMain, image, currentPrice, savings, price)
     reviewList.innerHTML = ''
 }
@@ -80,12 +80,12 @@ formElement.addEventListener('submit', (e) => {
     formElement.reset()
 })
 
-const reviewPlaceHolderText = () => {
-    const x = 'Holy smokes, what did you think of this game?!'
-    const y = `Gee Whilikers, I can't believe this outsold Contra!`
-    const z = `Where's the beef? Where's the beef? It's in the game!"`
+// const reviewPlaceHolderText = () => {
+//     const x = 'Holy smokes, what did you think of this game?!'
+//     const y = `Gee Whilikers, I can't believe this outsold Contra!`
+//     const z = `Where's the beef? Where's the beef? It's in the game!"`
 
-}
+// }
 
 
 // Ideas for tomorrow, add the like button, if the submit form is empty do not create an empty li, make our own json database to hold reviews and likes, get everything on cards
