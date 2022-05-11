@@ -15,13 +15,12 @@ let nameMain = document.createElement('h3')
 let image = document.createElement('img')
 let price = document.createElement('h4')
 let currentPrice = document.createElement('h2')
+let savings = document.createElement('h4')
 
 // const randomIndex = (array) => {
 //     console.log(Math.floor(Math.random() * (array.length - 1)))
 //     return Math.floor(Math.random() * (array.length - 1))
 // }
-
-
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
@@ -33,11 +32,13 @@ const renderMain = (gameObj) => {
     nameMain.innerText = title.toString()
     image.src = thumb.toString()
     image.id = 'image'
-    price.innerText = `msrp $${normalPrice}`
+    price.innerText = `MSRP $${normalPrice}`
     currentPrice.innerText = `$${salePrice}`
-    mainCard.append(nameMain, image, currentPrice, price)
+    savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)} !`
+    mainCard.append(nameMain, image, currentPrice, savings, price)
     reviewList.innerHTML = ''
 }
+
 
 
 const renderList = (gameObj) => {
