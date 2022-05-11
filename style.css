@@ -15,6 +15,7 @@
     width: 300px;
     height: 25px;
     border-radius: 2.5px;
+    
 
 }
 
@@ -43,6 +44,7 @@ h3{
     background-color: #6B6B6B ;
     color:#ffffff;
     border-radius: 2.5px;
+    text-align: center;
 }
 
 

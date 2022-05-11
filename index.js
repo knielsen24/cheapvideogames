@@ -42,7 +42,7 @@ const renderMain = (gameObj) => {
 
 const renderList = (gameObj) => {
     const list = document.getElementById('list')
-    const name = document.createElement('li')
+    const name = document.createElement('div')
     name.textContent = gameObj.title
     list.append(name)
     name.addEventListener('click', (e) => {
