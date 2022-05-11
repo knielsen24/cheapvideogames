@@ -1,7 +1,15 @@
 /* light orange FDD09F, red CB6555, blue B9DDD6, yellow FAE0A8, black 3A3D3C, green B6BF9D */
 
 
+#usrinput{
+    resize: none;
+    width: 350px;
+}
 
+
+div{
+    padding-top: 10px;
+}
 
 #sickGames{
     width: 200px
@@ -54,8 +62,8 @@ body{
 
 #image{
 
-    width: 75%;
-    height: 75%;
+    width: 50%;
+    height: 50%;
     border-radius: 10px;
     
 }
@@ -97,4 +105,8 @@ body {
 
     width: auto
 
+}
+
+#review-list{
+    list-style: none;
 }

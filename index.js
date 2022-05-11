@@ -47,7 +47,8 @@ const renderList = (gameObj) => {
     list.append(name)
     name.addEventListener('click', (e) => {
         e.target.title.value
-        renderMain(gameObj)            
+        renderMain(gameObj)
+        window.scrollTo(0,0)            
     });
 }
 
@@ -61,6 +62,7 @@ const randomGameButton = (gameArray) => {
         let index = Math.floor(Math.random() * (gameArray.length - 1))
         let gameObj = gameArray[index]
         renderMain(gameObj)
+        
     })
 }
 
@@ -70,7 +72,7 @@ const reviewList = document.getElementById('review-list')
 
 formElement.addEventListener('submit', (e) => {
     e.preventDefault()
-    let post = document.createElement('li')
+    let post = document.createElement('div')
     post.textContent = `"${e.target.usrinput.value}"`
     reviewList.append(post)
     formElement.reset()
