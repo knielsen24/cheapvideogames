@@ -13,7 +13,7 @@ fetch(url)
 
 let nameMain = document.createElement('h3')
 let image = document.createElement('img')
-let price = document.createElement('h4')
+let price = document.createElement('h5')
 let currentPrice = document.createElement('h2')
 let savings = document.createElement('h4')
 
@@ -63,6 +63,7 @@ const randomGameButton = (gameArray) => {
         let index = Math.floor(Math.random() * (gameArray.length - 1))
         let gameObj = gameArray[index]
         renderMain(gameObj)
+        window.scrollTo(0,0)  
         
     })
 }
