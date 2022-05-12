@@ -26,6 +26,7 @@ a {
     /* display: flexbox; */
     padding: 10px;
     width: 2000px;
+    color: black;
     background-color: #FF7F29;
 }
 
@@ -106,7 +107,7 @@ h2 {
 }
 
 
-h3 {
+.title-name {
     background-color: #6B6B6B ;
     color:#ffffff;
     border-radius: 2.5px;
@@ -115,7 +116,7 @@ h3 {
     margin-top: 0%;
 }
 
-h4 {
+h4.go-green {
     background-color: green;
     color: white;
     width: auto;    
@@ -125,7 +126,6 @@ h4 {
     padding: 10px;
     margin: 10px;
     font-size: small;
-    
 }
 
 h5 {

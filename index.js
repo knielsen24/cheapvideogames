@@ -28,9 +28,6 @@ titleCardsHeader.className = 'header'
 titleCardsHeader.innerText = 'More Games'.toUpperCase()
 titleCardsSection.append(titleCardsHeader)
 
-const gamesListHeader = document.querySelector('#game-titles')
-gamesListHeader.className = 'header'
-
 const divForm = document.createElement('div')
 divForm.id = 'div-form'
 
@@ -59,10 +56,12 @@ const renderObj = (gameArray) => {
 }
 
 const nameMain = document.createElement('h3')
+nameMain.className = 'title-name'
 const image = document.createElement('img')
 const price = document.createElement('h5')
 const currentPrice = document.createElement('h2')
 const savings = document.createElement('h4')
+savings.className = 'go-green'
 const featureTitle = document.createElement('div')
 featureTitle.id = "main-title"
 featureTitle.className = "title-cards"
@@ -83,10 +82,12 @@ const renderMain = (gameObj) => {
 
 const renderCards = (gameObj) => {
     const nameMain = document.createElement('h3')
+    nameMain.className = 'title-name'
     const image = document.createElement('img')
     const price = document.createElement('h5')
     const currentPrice = document.createElement('h2')
     const savings = document.createElement('h4')
+    savings.className = 'go-green'
     const titleCards = document.createElement('div')
     titleCards.className = "title-cards"
     titleCardsSection.append(titleCards)
