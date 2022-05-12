@@ -28,6 +28,9 @@ titleCardsHeader.className = 'header'
 titleCardsHeader.innerText = 'More Games'.toUpperCase()
 titleCardsSection.append(titleCardsHeader)
 
+const gamesListHeader = document.querySelector('#game-titles')
+gamesListHeader.className = 'header'
+
 const divForm = document.createElement('div')
 divForm.id = 'div-form'
 

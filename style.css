@@ -13,7 +13,7 @@ a {
 #game-cards {
     padding-top: 0px;
     text-align: center;
-    //display: block;
+    display: block;
 }
 
 #main-card {
@@ -23,7 +23,7 @@ a {
 
 .header {
     text-align: center;
-    display: flexbox;
+    /* display: flexbox; */
     padding: 10px;
     width: 2000px;
     background-color: #FF7F29;
@@ -165,11 +165,6 @@ h5 {
     justify-content: center;
     flex-wrap: wrap;
 
-}
-
-
-#game-titles {
-    padding: 10px;
 }
 
 #review-button {
