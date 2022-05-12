@@ -1,18 +1,23 @@
+const mainCard = document.querySelector('#main-card')
+mainCard.className = "card-container"
+
 const titleCardsSection = document.createElement('section')
 titleCardsSection.id = 'title-cards'
 titleCardsSection.className = 'card-container'
-const mainCardHeader = document.createElement('header')
-mainCardHeader.id = 'main-card-header'
-mainCardHeader.className = 'card-header'
+
+const featuredCard = document.createElement('div')
+featuredCard.id = 'featured'
+featuredCard.className = 'card-header'
+featuredCard.textContent = 'Featured Game'
 
 const divForm = document.createElement('div')
 divForm.id = 'div-form'
 
 const gameCards = document.querySelector('#game-cards')
-gameCards.append(titleCardsSection, divForm)
-const mainCard = document.querySelector('#main-card')
-mainCard.className = "card-container"
-mainCard.append(mainCardHeader)
+gameCards.append(featuredCard ,titleCardsSection, divForm)
+
+//mainCard.innerText = "Featured Game"
+
 
 const url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 
@@ -33,7 +38,6 @@ const renderObj = (gameArray) => {
     
 }
 
-const renderMain = (gameObj) => {
     const nameMain = document.createElement('h3')
     const image = document.createElement('img')
     const price = document.createElement('h5')
@@ -41,8 +45,9 @@ const renderMain = (gameObj) => {
     const savings = document.createElement('h4')
     const titleCards = document.createElement('div')
     titleCards.className = "title-cards"
+
+const renderMain = (gameObj) => {
     mainCard.append(titleCards)
-    
     const {title, thumb, normalPrice, salePrice} = gameObj
     
     nameMain.innerText = title.toString()

@@ -15,6 +15,11 @@ a {
     text-align: center;
 }
 
+#main-card {
+    /* padding: 10px; */
+    text-align: center;
+}
+
 div.title-cards {
     width: 375px;
     min-width: 200px;
