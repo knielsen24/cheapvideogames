@@ -1,3 +1,5 @@
+const logo = document.createElement
+
 const gameCards = document.querySelector('#game-cards')
 gameCards.className = 'main-container'
 
@@ -10,9 +12,21 @@ titleCardsSection.className = 'card-container'
 // featuredCard.className = 'card-header'
 // featuredCard.textContent = 'Featured Game'
 
+
 const mainCard = document.querySelector('#main-card')
 mainCard.className = "card-container"
-// mainCard.textContent = "Featured Game".toUpperCase()
+
+const mainCardHeader = document.createElement('header')
+mainCardHeader.id = 'main-card-header'
+mainCardHeader.className = 'header'
+mainCardHeader.innerText = 'Featured Game'.toUpperCase()
+mainCard.append(mainCardHeader)
+
+const titleCardsHeader = document.createElement('header')
+titleCardsHeader.id = 'titles-cards-header'
+titleCardsHeader.className = 'header'
+titleCardsHeader.innerText = 'More Games'.toUpperCase()
+titleCardsSection.append(titleCardsHeader)
 
 const divForm = document.createElement('div')
 divForm.id = 'div-form'
@@ -89,12 +103,15 @@ const renderCards = (gameObj) => {
 // const gameInfo = (gameObj) => {
 //     const {title, thumb, normalPrice, salePrice} = gameObj
     
-//     nameMain.innerText = title.toString()
-//     image.src = thumb.toString()
-//     image.id = 'image'
-//     price.innerText = `MSRP $${normalPrice}`
-//     currentPrice.innerText = `$${salePrice}`
-//     savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
+//     gameObj = {
+//         nameMain.innerText : title.toString(),
+//         image.src : thumb.toString(),
+//         image.id :'image',
+//         price.innerText : `MSRP $${normalPrice}`,
+//         currentPrice.innerText : `$${salePrice}`,
+//         savings.innerText : `Total Savings $${(normalPrice-salePrice).toFixed(2)}`,
+//     }
+    
 //     titleCards.append(nameMain, image, currentPrice, savings, price)
 //     reviewList.innerHTML = ''
 // }

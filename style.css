@@ -13,12 +13,20 @@ a {
 #game-cards {
     padding-top: 0px;
     text-align: center;
-    display: block;
+    //display: block;
 }
 
 #main-card {
     /* padding: 10px; */
     text-align: center;
+}
+
+.header {
+    text-align: center;
+    display: flexbox;
+    padding: 10px;
+    width: 2000px;
+    background-color: #FF7F29;
 }
 
 #main-title {
