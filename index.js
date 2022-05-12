@@ -17,14 +17,24 @@ let price = document.createElement('h5')
 let currentPrice = document.createElement('h2')
 let savings = document.createElement('h4')
 
-// const randomIndex = (array) => {
-//     console.log(Math.floor(Math.random() * (array.length - 1)))
-//     return Math.floor(Math.random() * (array.length - 1))
+const randomIndex = (array) => {
+    return Math.floor(Math.random() * (array.length - 1))
+}
+
+// const threeCards = (array) => {
+//     for (let i = 0; i < 3; i++) {
+//         return gameArray[randomIndex(gameArray)]
+//     }
 // }
+
+
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
-    renderMain(gameArray[0])
+    renderMain(gameArray[randomIndex(gameArray)])
+    const smallArray = gameArray.slice(0,3)
+    console.log(smallArray)
+    
 }
 
 const renderMain = (gameObj) => {
@@ -60,8 +70,7 @@ const randomGameButton = (gameArray) => {
     randomGame.id = 'randomButton'
     document.getElementById('random-game').append(randomGame)
     randomGame.addEventListener('click', (e) => {
-        let index = Math.floor(Math.random() * (gameArray.length - 1))
-        let gameObj = gameArray[index]
+        let gameObj = gameArray[randomIndex(gameArray)]
         renderMain(gameObj)
         window.scrollTo(0,0)  
         
