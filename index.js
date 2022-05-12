@@ -8,7 +8,6 @@ fetch(url)
     .then(r => r.json())
     .then(gameArray => {
         renderObj(gameArray)
-        //randomIndex(gameArray)
     })
 
 let nameMain = document.createElement('h3')
@@ -21,11 +20,8 @@ const randomIndex = (array) => {
     return Math.floor(Math.random() * (array.length - 1))
 }
 
-// const threeCards = (array) => {
-//     for (let i = 0; i < 3; i++) {
-//         return gameArray[randomIndex(gameArray)]
-//     }
-// }
+//  to get three random titles, we can use the sort() method
+//  pass a random function and return the array and slice (0,3)
 
 
 const renderObj = (gameArray) => {
@@ -33,11 +29,14 @@ const renderObj = (gameArray) => {
     randomGameButton(gameArray)
     renderMain(gameArray[randomIndex(gameArray)])
     const smallArray = gameArray.slice(0,3)
-    console.log(smallArray)
+    //console.log(smallArray)
+    //smallArray.forEach(renderMain)
     
 }
 
 const renderMain = (gameObj) => {
+    const titleCards = document.createElement('div')
+    mainCard.append(titleCards)
     const {title, thumb, normalPrice, salePrice} = gameObj
     nameMain.innerText = title.toString()
     image.src = thumb.toString()
@@ -45,7 +44,7 @@ const renderMain = (gameObj) => {
     price.innerText = `MSRP $${normalPrice}`
     currentPrice.innerText = `$${salePrice}`
     savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
-    mainCard.append(nameMain, image, currentPrice, savings, price)
+    titleCards.append(nameMain, image, currentPrice, savings, price)
     reviewList.innerHTML = ''
 }
 
