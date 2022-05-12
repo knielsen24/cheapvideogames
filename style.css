@@ -13,6 +13,7 @@ a {
 #game-cards {
     padding-top: 0px;
     text-align: center;
+    display: block;
 }
 
 #main-card {
@@ -20,8 +21,12 @@ a {
     text-align: center;
 }
 
+#main-title {
+    width: 660px;
+}
+
 div.title-cards {
-    width: 375px;
+    width: 300px;
     min-width: 200px;
     border: 2px solid #6b6b6b;
     border-radius: 5px;
@@ -31,9 +36,6 @@ div.title-cards {
     flex-shrink: 1;
 }
 
-.title-list {
-    padding: 5px;
-}
 
 .card-container {
     display: flex;
@@ -65,7 +67,6 @@ div.title-cards {
     width: 75px;   
     
 }
-
 
 
 body {
@@ -124,23 +125,23 @@ h5 {
 }
 
 
-
-
 #form {
     text-align: center;
     list-style: none;
     margin: 20px;
 }
 
+.title-list {
+    padding: 5px;
+}
+
 #list {
     text-align: center;
     list-style: none;
     /* width: 300px; */
-    
 }
 
 #random-game {
-
     width: auto;
     text-align: center;
 

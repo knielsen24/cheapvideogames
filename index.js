@@ -1,22 +1,23 @@
-const mainCard = document.querySelector('#main-card')
-mainCard.className = "card-container"
+const gameCards = document.querySelector('#game-cards')
+gameCards.className = 'main-container'
 
 const titleCardsSection = document.createElement('section')
 titleCardsSection.id = 'title-cards'
 titleCardsSection.className = 'card-container'
 
-const featuredCard = document.createElement('div')
-featuredCard.id = 'featured'
-featuredCard.className = 'card-header'
-featuredCard.textContent = 'Featured Game'
+// const featuredCard = document.createElement('div')
+// featuredCard.id = 'featured'
+// featuredCard.className = 'card-header'
+// featuredCard.textContent = 'Featured Game'
+
+const mainCard = document.querySelector('#main-card')
+mainCard.className = "card-container"
+// mainCard.textContent = "Featured Game".toUpperCase()
 
 const divForm = document.createElement('div')
 divForm.id = 'div-form'
 
-const gameCards = document.querySelector('#game-cards')
-gameCards.append(featuredCard ,titleCardsSection, divForm)
-
-//mainCard.innerText = "Featured Game"
+gameCards.append(titleCardsSection, divForm)
 
 
 const mainUrl = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
@@ -31,27 +32,26 @@ const getGames = (url) => {
 
 getGames(mainUrl)
 
-
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
     renderMain(gameArray[randomIndex(gameArray)])
     const smallArray = gameArray.slice(0,6)
     //console.log(smallArray)
-    smallArray.forEach(renderCards)
-    
+    smallArray.forEach(renderCards)    
 }
 
-    const nameMain = document.createElement('h3')
-    const image = document.createElement('img')
-    const price = document.createElement('h5')
-    const currentPrice = document.createElement('h2')
-    const savings = document.createElement('h4')
-    const titleCards = document.createElement('div')
-    titleCards.className = "title-cards"
+const nameMain = document.createElement('h3')
+const image = document.createElement('img')
+const price = document.createElement('h5')
+const currentPrice = document.createElement('h2')
+const savings = document.createElement('h4')
+const featureTitle = document.createElement('div')
+featureTitle.id = "main-title"
+featureTitle.className = "title-cards"
 
 const renderMain = (gameObj) => {
-    mainCard.append(titleCards)
+    mainCard.append(featureTitle)
     const {title, thumb, normalPrice, salePrice} = gameObj
     
     nameMain.innerText = title.toString()
@@ -60,7 +60,7 @@ const renderMain = (gameObj) => {
     price.innerText = `MSRP $${normalPrice}`
     currentPrice.innerText = `$${salePrice}`
     savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
-    titleCards.append(nameMain, image, currentPrice, savings, price)
+    featureTitle.append(nameMain, image, currentPrice, savings, price)
     reviewList.innerHTML = ''
 }
 
@@ -86,7 +86,18 @@ const renderCards = (gameObj) => {
     reviewList.innerHTML = ''
 }
 
-
+// const gameInfo = (gameObj) => {
+//     const {title, thumb, normalPrice, salePrice} = gameObj
+    
+//     nameMain.innerText = title.toString()
+//     image.src = thumb.toString()
+//     image.id = 'image'
+//     price.innerText = `MSRP $${normalPrice}`
+//     currentPrice.innerText = `$${salePrice}`
+//     savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
+//     titleCards.append(nameMain, image, currentPrice, savings, price)
+//     reviewList.innerHTML = ''
+// }
 
 const renderList = (gameObj) => {
     const list = document.getElementById('list')
