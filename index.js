@@ -1,7 +1,8 @@
 
 
 const url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
-let mainCard = document.querySelector('#main-card')
+const mainCard = document.querySelector('#main-card')
+mainCard.className = "card-container"
 
 
 fetch(url)
@@ -10,11 +11,7 @@ fetch(url)
         renderObj(gameArray)
     })
 
-let nameMain = document.createElement('h3')
-let image = document.createElement('img')
-let price = document.createElement('h5')
-let currentPrice = document.createElement('h2')
-let savings = document.createElement('h4')
+
 
 const randomIndex = (array) => {
     return Math.floor(Math.random() * (array.length - 1))
@@ -27,15 +24,23 @@ const randomIndex = (array) => {
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
-    renderMain(gameArray[randomIndex(gameArray)])
-    const smallArray = gameArray.slice(0,3)
+    //renderMain(gameArray[randomIndex(gameArray)])
+    const smallArray = gameArray.slice(0,6)
     //console.log(smallArray)
-    //smallArray.forEach(renderMain)
+    smallArray.forEach(renderMain)
     
 }
 
 const renderMain = (gameObj) => {
+    const nameMain = document.createElement('h3')
+    const image = document.createElement('img')
+    const price = document.createElement('h5')
+    const currentPrice = document.createElement('h2')
+    const savings = document.createElement('h4')
     const titleCards = document.createElement('div')
+
+    titleCards.className = "title-cards"
+
     mainCard.append(titleCards)
     const {title, thumb, normalPrice, salePrice} = gameObj
     nameMain.innerText = title.toString()
@@ -53,6 +58,7 @@ const renderMain = (gameObj) => {
 const renderList = (gameObj) => {
     const list = document.getElementById('list')
     const name = document.createElement('div')
+    name.className = "title-list"
     name.textContent = gameObj.title
     list.append(name)
     name.addEventListener('click', (e) => {

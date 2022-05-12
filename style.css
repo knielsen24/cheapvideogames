@@ -5,22 +5,47 @@ a {
     padding: 0px;
 }
 
-#usrinput{
+#usrinput {
     resize: none;
     width: 350px;
 }
 
-
-div{
-    padding-top: 10px;
+#main-card {
+    
+    padding-top: 0px;
+    text-align: center;
 }
 
-#sickGames{
+div.title-cards {
+    max-width: 450px;
+    min-width: 200px;
+    height: 10%;
+    border: 2px solid #6b6b6b;
+    border-radius: 5;
+    padding-top: 5px;
+    padding: 7.5px;
+    margin: 20px;
+    flex-shrink: 0;
+}
+
+.title-list {
+    padding: 5px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: flex-start;
+}
+
+#sickGames {
     width: 200px;
     padding: 0px;
 }
 
-.button{
+.button {
 
     background-color: #FF7F29;
     color:#ffffff;
@@ -29,53 +54,29 @@ div{
     height: 25px;
     border-radius: 2.5px;
     
-
 }
 
-#randomButton{
-    color:#ffffff;
-}
 
-#subbtn{
-    color:#ffffff;
+#subbtn {
     border-width: 0px;
-    width: 75px;
-    
-    
-    
-    
-}
-
-h2{
-    font-size: 2em;
-    color: #FF7F29;
-    padding-bottom: 0px;
+    width: 75px;   
     
 }
 
 
-h3{
-    background-color: #6B6B6B ;
-    color:#ffffff;
-    border-radius: 2.5px;
-    text-align: center;
-    padding: 10px;
-    margin-top: 0%;
-}
 
-
-body{
+body {
     background-color: #ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+    
     /* display: flex;
     flex-direction: column ; */
 }
 
-#image{
-
-    width: 50%;
-    height: 50%;
-    border-radius: 10px;
-    
+#image {
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;    
 }
 
 h1 {
@@ -86,51 +87,21 @@ h1 {
     
 }
 
-body {
-    font-family:Arial, Helvetica, sans-serif;
-    
+h2 {
+    font-size: 2em;
+    color: #FF7F29;
+    margin: 10px; 
 }
 
 
-.button {
-    color: rgb(39, 39, 39);
-    
-}
-
-#main-card {
-    padding-top: 0px;
+h3 {
+    background-color: #6B6B6B ;
+    color:#ffffff;
+    border-radius: 2.5px;
     text-align: center;
-}
-
-#form {
-    text-align: center;
-    list-style: none;
-}
-
-#list{
-    text-align: center;
-    list-style: none;
-    
-}
-
-#random-game{
-
-    width: auto;
-    text-align: center;
-    
-    
-
-}
-
-#review-list{
-    list-style: none;
-}
-
-#randomButton{
-    display: flexbox;
-    align-items: center;
-    justify-content: center;
-
+    padding: 10px;
+    margin-top: 0%;
+    font-size: small;
 }
 
 h4 {
@@ -141,19 +112,50 @@ h4 {
     border-radius: 2.5px;
     text-align: center;
     padding: 10px;
+    margin: 10px;
     
 }
 
-#game-titles{
+
+
+
+
+#form {
+    text-align: center;
+    list-style: none;
+}
+
+#list {
+    text-align: center;
+    list-style: none;
+    
+}
+
+#random-game {
+
+    width: auto;
+    text-align: center;
+
+}
+
+#review-list {
+    list-style: none;
+}
+
+#randomButton {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+
+#game-titles {
     padding: 10px;
 }
 
-#review-button{
+#review-button {
     padding-bottom: 10px;
 }
 
-#divBorder{
-    border: #6b6b6b;
-    border-width: 235px;
-    border-radius: 5px;
-}
