@@ -19,13 +19,17 @@ gameCards.append(featuredCard ,titleCardsSection, divForm)
 //mainCard.innerText = "Featured Game"
 
 
-const url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
+const mainUrl = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 
-fetch(url)
+const getGames = (url) => {
+    fetch(url)
     .then(r => r.json())
     .then(gameArray => {
         renderObj(gameArray)
     })
+}
+
+getGames(mainUrl)
 
 
 const renderObj = (gameArray) => {
