@@ -1,9 +1,20 @@
+const titleCardsSection = document.createElement('section')
+titleCardsSection.id = 'title-cards'
+titleCardsSection.className = 'card-container'
+const mainCardHeader = document.createElement('header')
+mainCardHeader.id = 'main-card-header'
+mainCardHeader.className = 'card-header'
 
+const divForm = document.createElement('div')
+divForm.id = 'div-form'
 
-const url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
+const gameCards = document.querySelector('#game-cards')
+gameCards.append(titleCardsSection, divForm)
 const mainCard = document.querySelector('#main-card')
 mainCard.className = "card-container"
+mainCard.append(mainCardHeader)
 
+const url = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 
 fetch(url)
     .then(r => r.json())
@@ -12,22 +23,13 @@ fetch(url)
     })
 
 
-
-const randomIndex = (array) => {
-    return Math.floor(Math.random() * (array.length - 1))
-}
-
-//  to get three random titles, we can use the sort() method
-//  pass a random function and return the array and slice (0,3)
-
-
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
-    //renderMain(gameArray[randomIndex(gameArray)])
+    renderMain(gameArray[randomIndex(gameArray)])
     const smallArray = gameArray.slice(0,6)
     //console.log(smallArray)
-    smallArray.forEach(renderMain)
+    smallArray.forEach(renderCards)
     
 }
 
@@ -38,11 +40,33 @@ const renderMain = (gameObj) => {
     const currentPrice = document.createElement('h2')
     const savings = document.createElement('h4')
     const titleCards = document.createElement('div')
-
     titleCards.className = "title-cards"
-
     mainCard.append(titleCards)
+    
     const {title, thumb, normalPrice, salePrice} = gameObj
+    
+    nameMain.innerText = title.toString()
+    image.src = thumb.toString()
+    image.id = 'image'
+    price.innerText = `MSRP $${normalPrice}`
+    currentPrice.innerText = `$${salePrice}`
+    savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
+    titleCards.append(nameMain, image, currentPrice, savings, price)
+    reviewList.innerHTML = ''
+}
+
+const renderCards = (gameObj) => {
+    const nameMain = document.createElement('h3')
+    const image = document.createElement('img')
+    const price = document.createElement('h5')
+    const currentPrice = document.createElement('h2')
+    const savings = document.createElement('h4')
+    const titleCards = document.createElement('div')
+    titleCards.className = "title-cards"
+    titleCardsSection.append(titleCards)
+    
+    const {title, thumb, normalPrice, salePrice} = gameObj
+    
     nameMain.innerText = title.toString()
     image.src = thumb.toString()
     image.id = 'image'
@@ -81,8 +105,9 @@ const randomGameButton = (gameArray) => {
         
     })
 }
-
+ 
 const formElement = document.getElementById('form')
+divForm.append(formElement)
 const reviewList = document.getElementById('review-list')
 
 
@@ -94,6 +119,11 @@ formElement.addEventListener('submit', (e) => {
     formElement.reset()
 })
 
+const randomIndex = (array) => {
+    return Math.floor(Math.random() * (array.length - 1))
+}
+
+
 // const reviewPlaceHolderText = () => {
 //     const x = 'Holy smokes, what did you think of this game?!'
 //     const y = `Gee Whilikers, I can't believe this outsold Contra!`
@@ -104,3 +134,14 @@ formElement.addEventListener('submit', (e) => {
 
 // Ideas for tomorrow, add the like button, if the submit form is empty do not create an empty li, make our own json database to hold reviews and likes, get everything on cards
 // light orange FDD09F, red CB6555, blue B9DDD6, yellow FAE0A8, black 3A3D3C, green B6BF9D
+
+// const createCardElements = () => {
+//     const nameMain = document.createElement('h3')
+//     const image = document.createElement('img')
+//     const price = document.createElement('h5')
+//     const currentPrice = document.createElement('h2')
+//     const savings = document.createElement('h4')
+//     const titleCards = document.createElement('div')
+//     titleCards.className = "title-cards"
+//     return nameMain, image, price, currentPrice, savings, titleCards
+// }
