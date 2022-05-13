@@ -19,23 +19,23 @@ titleCardsHeader.id = 'titles-cards-header'
       
 mainCardHeader.innerText = 'Featured Game'.toUpperCase()
 titleCardsHeader.innerText = 'More Games'.toUpperCase()
-
-mainCard.append(mainCardHeader)   
+  
 titleCardsSection.append(titleCardsHeader)
 gameCards.append(titleCardsSection, divForm)
 divForm.append(formElement)
 
-let title = document.createElement('h3')
-let image = document.createElement('img')
-let price = document.createElement('h5')
-let salePrice = document.createElement('h2')
-let savings = document.createElement('h4')
-let featureTitle = document.createElement('div')
+const title = document.createElement('h3')
+const image = document.createElement('img')
+const price = document.createElement('h5')
+const salePrice = document.createElement('h2')
+const savings = document.createElement('h4')
+const featureTitle = document.createElement('div')
 title.className = 'title-name'
 savings.className = 'go-green'
 featureTitle.className = "title-cards"
 featureTitle.id = "main-title"
-mainCard.append(featureTitle)
+
+mainCard.append(mainCardHeader, featureTitle)
 
 
 const mainUrl = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
@@ -51,16 +51,7 @@ const renderObj = (gameArray) => {
     gameArray.slice(0,6).map(renderCards)
     randomGameButton(gameArray)
     renderMain(randomIndex(gameArray))
-    // gameArray.forEach(obj => {
-    //     gameObj = {
-    //         title : obj.title,
-    //         thumb : obj.thumb,
-    //         normalPrice : obj.normalPrice,
-    //         salePrice : obj.salePrice,
-    //     }
-    // })
 }
-
 
 const gameCardTile = (gameObj) => {
     title.innerText = gameObj.title
@@ -79,7 +70,6 @@ const renderMain = (gameObj) => {
 const renderCards = (gameObj) => {
     //console.log(gameObj)
     let titleCards = document.createElement('div')
-    titleCardsSection.append(titleCards)
     let title = document.createElement('h3')
     let image = document.createElement('img')
     let price = document.createElement('h5')
@@ -97,6 +87,7 @@ const renderCards = (gameObj) => {
     salePrice.innerText = `$${gameObj.salePrice}`
     savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
     
+    titleCardsSection.append(titleCards)
     titleCards.append(title, image, salePrice, savings, price)
 }
 
