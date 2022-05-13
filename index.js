@@ -1,23 +1,30 @@
-const gameCards = document.querySelector('#game-cards')
-    gameCards.className = 'main-container'
-const titleCardsSection = document.createElement('section')
-    titleCardsSection.id = 'title-cards'
-    titleCardsSection.className = 'card-container'
 const mainCard = document.querySelector('#main-card')
-    mainCard.className = "card-container"
+const gameCards = document.querySelector('#game-cards')
+const formElement = document.getElementById('form')
+const reviewList = document.getElementById('review-list')
+const titleCardsSection = document.createElement('section')
 const mainCardHeader = document.createElement('header')
-    mainCardHeader.id = 'main-card-header'
-    mainCardHeader.className = 'header'
-    mainCardHeader.innerText = 'Featured Game'.toUpperCase()
-    mainCard.append(mainCardHeader)
 const titleCardsHeader = document.createElement('header')
-    titleCardsHeader.id = 'titles-cards-header'
-    titleCardsHeader.className = 'header'
-    titleCardsHeader.innerText = 'More Games'.toUpperCase()
-    titleCardsSection.append(titleCardsHeader)
 const divForm = document.createElement('div')
-    divForm.id = 'div-form'
+
+gameCards.className = 'main-container'
+titleCardsSection.className = 'card-container'
+mainCard.className = "card-container"   
+mainCardHeader.className = 'header'
+titleCardsHeader.className = 'header'
+
+titleCardsSection.id = 'title-cards'
+mainCardHeader.id = 'main-card-header'   
+titleCardsHeader.id = 'titles-cards-header'
+      
+mainCardHeader.innerText = 'Featured Game'.toUpperCase()
+titleCardsHeader.innerText = 'More Games'.toUpperCase()
+
+mainCard.append(mainCardHeader)   
+titleCardsSection.append(titleCardsHeader)
 gameCards.append(titleCardsSection, divForm)
+divForm.append(formElement)
+
 
 const mainUrl = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 const getGames = (url) => {
@@ -45,15 +52,15 @@ const renderObj = (gameArray) => {
 
 
 const nameMain = document.createElement('h3')
-nameMain.className = 'title-name'
 const image = document.createElement('img')
 const price = document.createElement('h5')
 const currentPrice = document.createElement('h2')
 const savings = document.createElement('h4')
-savings.className = 'go-green'
 const featureTitle = document.createElement('div')
-featureTitle.id = "main-title"
+nameMain.className = 'title-name'
+savings.className = 'go-green'
 featureTitle.className = "title-cards"
+featureTitle.id = "main-title"
 
 const gameCardTile = (gameObj) => {
     nameMain.innerText = gameObj.title
@@ -122,11 +129,6 @@ const randomGameButton = (gameArray) => {
         window.scrollTo(0,0)  
     })
 }
- 
-const formElement = document.getElementById('form')
-divForm.append(formElement)
-const reviewList = document.getElementById('review-list')
-
 
 formElement.addEventListener('submit', (e) => {
     e.preventDefault()
