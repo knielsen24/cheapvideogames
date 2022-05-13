@@ -12,12 +12,9 @@ a {
 
 #game-cards {
     padding-top: 0px;
-    text-align: center;
-    display: block;
 }
 
 #main-card {
-    /* padding: 10px; */
     text-align: center;
 }
 
@@ -30,16 +27,17 @@ a {
     background-color: #FF7F29;
 }
 
-#main-title {
+#main-title.title-cards {
     width: 660px;
+    margin: 20px;
 }
 
 div.title-cards {
+    text-align: center;
     width: 300px;
     min-width: 200px;
     border: 2px solid #6b6b6b;
     border-radius: 5px;
-    padding-top: 5px;
     padding: 7.5px;
     margin: 20px;
     flex-shrink: 1;
@@ -74,7 +72,6 @@ div.title-cards {
 #subbtn {
     border-width: 0px;
     width: 75px;   
-    
 }
 
 

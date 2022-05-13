@@ -1,59 +1,46 @@
 const gameCards = document.querySelector('#game-cards')
-gameCards.className = 'main-container'
-
+    gameCards.className = 'main-container'
 const titleCardsSection = document.createElement('section')
-titleCardsSection.id = 'title-cards'
-titleCardsSection.className = 'card-container'
-
+    titleCardsSection.id = 'title-cards'
+    titleCardsSection.className = 'card-container'
 const mainCard = document.querySelector('#main-card')
-mainCard.className = "card-container"
-
+    mainCard.className = "card-container"
 const mainCardHeader = document.createElement('header')
-mainCardHeader.id = 'main-card-header'
-mainCardHeader.className = 'header'
-mainCardHeader.innerText = 'Featured Game'.toUpperCase()
-mainCard.append(mainCardHeader)
-
+    mainCardHeader.id = 'main-card-header'
+    mainCardHeader.className = 'header'
+    mainCardHeader.innerText = 'Featured Game'.toUpperCase()
+    mainCard.append(mainCardHeader)
 const titleCardsHeader = document.createElement('header')
-titleCardsHeader.id = 'titles-cards-header'
-titleCardsHeader.className = 'header'
-titleCardsHeader.innerText = 'More Games'.toUpperCase()
-titleCardsSection.append(titleCardsHeader)
-
+    titleCardsHeader.id = 'titles-cards-header'
+    titleCardsHeader.className = 'header'
+    titleCardsHeader.innerText = 'More Games'.toUpperCase()
+    titleCardsSection.append(titleCardsHeader)
 const divForm = document.createElement('div')
-divForm.id = 'div-form'
-
+    divForm.id = 'div-form'
 gameCards.append(titleCardsSection, divForm)
 
-
 const mainUrl = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
-
 const getGames = (url) => {
-    fetch(url)
-    .then(r => r.json())
-    .then(gameArray => {
+    fetch(url).then(r => r.json()).then(gameArray => {
         renderObj(gameArray)
     })
 }
-
 getGames(mainUrl)
 
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
+    const smallArray = gameArray.slice(0,6)
+    smallArray.forEach(renderCards)
     randomGameButton(gameArray)
     renderMain(randomIndex(gameArray))
-    const smallArray = gameArray.slice(0,6)
-    smallArray.forEach(renderCards)    
-
-    gameArray.forEach(obj => {
-        gameObj = {
-            title : obj.title,
-            thumb : obj.thumb,
-            normalPrice : obj.normalPrice,
-            salePrice : obj.salePrice,
-        }
-        //console.log (gameObj)
-    })
+    // gameArray.forEach(obj => {
+    //     gameObj = {
+    //         title : obj.title,
+    //         thumb : obj.thumb,
+    //         normalPrice : obj.normalPrice,
+    //         salePrice : obj.salePrice,
+    //     }
+    // })
 }
 
 
@@ -68,13 +55,7 @@ const featureTitle = document.createElement('div')
 featureTitle.id = "main-title"
 featureTitle.className = "title-cards"
 
-const renderMain = (gameObj) => {
-    mainCard.append(featureTitle)
-    oneGameCard(gameObj)
-    featureTitle.append(nameMain, image, currentPrice, savings, price)
-}
-
-const oneGameCard = (gameObj) => {
+const gameCardTile = (gameObj) => {
     nameMain.innerText = gameObj.title
     image.src = gameObj.thumb
     image.id = 'image'
@@ -83,7 +64,19 @@ const oneGameCard = (gameObj) => {
     savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
 }
 
+
+const renderMain = (gameObj) => {
+    mainCard.append(featureTitle)
+    gameCardTile(gameObj)
+    featureTitle.append(nameMain, image, currentPrice, savings, price)
+}
+
+
 const renderCards = (gameObj) => {
+    const titleCards = document.createElement('div')
+    titleCards.className = "title-cards"
+    titleCardsSection.append(titleCards)
+    
     const nameMain = document.createElement('h3')
     nameMain.className = 'title-name'
     const image = document.createElement('img')
@@ -91,10 +84,7 @@ const renderCards = (gameObj) => {
     const currentPrice = document.createElement('h2')
     const savings = document.createElement('h4')
     savings.className = 'go-green'
-    const titleCards = document.createElement('div')
-    titleCards.className = "title-cards"
-    titleCardsSection.append(titleCards)
-     
+
     nameMain.innerText = gameObj.title
     image.src = gameObj.thumb
     image.id = 'image'
@@ -130,7 +120,6 @@ const randomGameButton = (gameArray) => {
         let gameObj = randomIndex(gameArray)
         renderMain(gameObj)
         window.scrollTo(0,0)  
-        
     })
 }
  
