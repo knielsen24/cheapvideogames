@@ -1,17 +1,9 @@
-const logo = document.createElement
-
 const gameCards = document.querySelector('#game-cards')
 gameCards.className = 'main-container'
 
 const titleCardsSection = document.createElement('section')
 titleCardsSection.id = 'title-cards'
 titleCardsSection.className = 'card-container'
-
-// const featuredCard = document.createElement('div')
-// featuredCard.id = 'featured'
-// featuredCard.className = 'card-header'
-// featuredCard.textContent = 'Featured Game'
-
 
 const mainCard = document.querySelector('#main-card')
 mainCard.className = "card-container"
@@ -49,11 +41,21 @@ getGames(mainUrl)
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
     randomGameButton(gameArray)
-    renderMain(gameArray[randomIndex(gameArray)])
+    renderMain(randomIndex(gameArray))
     const smallArray = gameArray.slice(0,6)
-    //console.log(smallArray)
     smallArray.forEach(renderCards)    
+
+    gameArray.forEach(obj => {
+        gameObj = {
+            title : obj.title,
+            thumb : obj.thumb,
+            normalPrice : obj.normalPrice,
+            salePrice : obj.salePrice,
+        }
+        //console.log (gameObj)
+    })
 }
+
 
 const nameMain = document.createElement('h3')
 nameMain.className = 'title-name'
@@ -68,16 +70,17 @@ featureTitle.className = "title-cards"
 
 const renderMain = (gameObj) => {
     mainCard.append(featureTitle)
-    const {title, thumb, normalPrice, salePrice} = gameObj
-    
-    nameMain.innerText = title.toString()
-    image.src = thumb.toString()
-    image.id = 'image'
-    price.innerText = `MSRP $${normalPrice}`
-    currentPrice.innerText = `$${salePrice}`
-    savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
+    oneGameCard(gameObj)
     featureTitle.append(nameMain, image, currentPrice, savings, price)
-    reviewList.innerHTML = ''
+}
+
+const oneGameCard = (gameObj) => {
+    nameMain.innerText = gameObj.title
+    image.src = gameObj.thumb
+    image.id = 'image'
+    price.innerText = `MSRP $${gameObj.normalPrice}`
+    currentPrice.innerText = `$${gameObj.salePrice}`
+    savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
 }
 
 const renderCards = (gameObj) => {
@@ -91,34 +94,18 @@ const renderCards = (gameObj) => {
     const titleCards = document.createElement('div')
     titleCards.className = "title-cards"
     titleCardsSection.append(titleCards)
-    
-    const {title, thumb, normalPrice, salePrice} = gameObj
-    
-    nameMain.innerText = title.toString()
-    image.src = thumb.toString()
+     
+    nameMain.innerText = gameObj.title
+    image.src = gameObj.thumb
     image.id = 'image'
-    price.innerText = `MSRP $${normalPrice}`
-    currentPrice.innerText = `$${salePrice}`
-    savings.innerText = `Total Savings $${(normalPrice-salePrice).toFixed(2)}`
+    price.innerText = `MSRP $${gameObj.normalPrice}`
+    currentPrice.innerText = `$${gameObj.salePrice}`
+    savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
+    
     titleCards.append(nameMain, image, currentPrice, savings, price)
-    reviewList.innerHTML = ''
+    console.log(gameObj)
 }
 
-// const gameInfo = (gameObj) => {
-//     const {title, thumb, normalPrice, salePrice} = gameObj
-    
-//     gameObj = {
-//         nameMain.innerText : title.toString(),
-//         image.src : thumb.toString(),
-//         image.id :'image',
-//         price.innerText : `MSRP $${normalPrice}`,
-//         currentPrice.innerText : `$${salePrice}`,
-//         savings.innerText : `Total Savings $${(normalPrice-salePrice).toFixed(2)}`,
-//     }
-    
-//     titleCards.append(nameMain, image, currentPrice, savings, price)
-//     reviewList.innerHTML = ''
-// }
 
 const renderList = (gameObj) => {
     const list = document.getElementById('list')
@@ -140,7 +127,7 @@ const randomGameButton = (gameArray) => {
     randomGame.id = 'randomButton'
     document.getElementById('random-game').append(randomGame)
     randomGame.addEventListener('click', (e) => {
-        let gameObj = gameArray[randomIndex(gameArray)]
+        let gameObj = randomIndex(gameArray)
         renderMain(gameObj)
         window.scrollTo(0,0)  
         
@@ -161,7 +148,7 @@ formElement.addEventListener('submit', (e) => {
 })
 
 const randomIndex = (array) => {
-    return Math.floor(Math.random() * (array.length - 1))
+    return array[Math.floor(Math.random() * (array.length - 1))]
 }
 
 
