@@ -25,6 +25,18 @@ titleCardsSection.append(titleCardsHeader)
 gameCards.append(titleCardsSection, divForm)
 divForm.append(formElement)
 
+let title = document.createElement('h3')
+let image = document.createElement('img')
+let price = document.createElement('h5')
+let salePrice = document.createElement('h2')
+let savings = document.createElement('h4')
+let featureTitle = document.createElement('div')
+title.className = 'title-name'
+savings.className = 'go-green'
+featureTitle.className = "title-cards"
+featureTitle.id = "main-title"
+mainCard.append(featureTitle)
+
 
 const mainUrl = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15'
 const getGames = (url) => {
@@ -51,55 +63,43 @@ const renderObj = (gameArray) => {
 }
 
 
-const nameMain = document.createElement('h3')
-const image = document.createElement('img')
-const price = document.createElement('h5')
-const currentPrice = document.createElement('h2')
-const savings = document.createElement('h4')
-const featureTitle = document.createElement('div')
-nameMain.className = 'title-name'
-savings.className = 'go-green'
-featureTitle.className = "title-cards"
-featureTitle.id = "main-title"
-
 const gameCardTile = (gameObj) => {
-    nameMain.innerText = gameObj.title
+    title.innerText = gameObj.title
     image.src = gameObj.thumb
     image.id = 'image'
     price.innerText = `MSRP $${gameObj.normalPrice}`
-    currentPrice.innerText = `$${gameObj.salePrice}`
+    salePrice.innerText = `$${gameObj.salePrice}`
     savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
 }
 
 
 const renderMain = (gameObj) => {
-    mainCard.append(featureTitle)
     gameCardTile(gameObj)
-    featureTitle.append(nameMain, image, currentPrice, savings, price)
+    featureTitle.append(title, image, salePrice, savings, price)
 }
 
 
 const renderCards = (gameObj) => {
-    const titleCards = document.createElement('div')
-    titleCards.className = "title-cards"
+    let titleCards = document.createElement('div')
     titleCardsSection.append(titleCards)
-    
-    const nameMain = document.createElement('h3')
-    nameMain.className = 'title-name'
-    const image = document.createElement('img')
-    const price = document.createElement('h5')
-    const currentPrice = document.createElement('h2')
-    const savings = document.createElement('h4')
+    let title = document.createElement('h3')
+    let image = document.createElement('img')
+    let price = document.createElement('h5')
+    let salePrice = document.createElement('h2')
+    let savings = document.createElement('h4')
+    titleCards.className = "title-cards"
+    title.className = 'title-name'
     savings.className = 'go-green'
 
-    nameMain.innerText = gameObj.title
+    //gameCardTile(gameObj)
+    title.innerText = gameObj.title
     image.src = gameObj.thumb
     image.id = 'image'
     price.innerText = `MSRP $${gameObj.normalPrice}`
-    currentPrice.innerText = `$${gameObj.salePrice}`
+    salePrice.innerText = `$${gameObj.salePrice}`
     savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
     
-    titleCards.append(nameMain, image, currentPrice, savings, price)
+    titleCards.append(title, image, salePrice, savings, price)
     console.log(gameObj)
 }
 
@@ -155,12 +155,12 @@ const randomIndex = (array) => {
 // light orange FDD09F, red CB6555, blue B9DDD6, yellow FAE0A8, black 3A3D3C, green B6BF9D
 
 // const createCardElements = () => {
-//     const nameMain = document.createElement('h3')
+//     const title = document.createElement('h3')
 //     const image = document.createElement('img')
 //     const price = document.createElement('h5')
-//     const currentPrice = document.createElement('h2')
+//     const salePrice = document.createElement('h2')
 //     const savings = document.createElement('h4')
 //     const titleCards = document.createElement('div')
 //     titleCards.className = "title-cards"
-//     return nameMain, image, price, currentPrice, savings, titleCards
+//     return title, image, price, salePrice, savings, titleCards
 // }
