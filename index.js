@@ -48,8 +48,7 @@ getGames(mainUrl)
 
 const renderObj = (gameArray) => {
     gameArray.forEach(renderList)
-    const smallArray = gameArray.slice(0,6)
-    smallArray.forEach(renderCards)
+    gameArray.slice(0,6).map(renderCards)
     randomGameButton(gameArray)
     renderMain(randomIndex(gameArray))
     // gameArray.forEach(obj => {
@@ -72,14 +71,13 @@ const gameCardTile = (gameObj) => {
     savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
 }
 
-
 const renderMain = (gameObj) => {
     gameCardTile(gameObj)
     featureTitle.append(title, image, salePrice, savings, price)
 }
 
-
 const renderCards = (gameObj) => {
+    //console.log(gameObj)
     let titleCards = document.createElement('div')
     titleCardsSection.append(titleCards)
     let title = document.createElement('h3')
@@ -90,7 +88,7 @@ const renderCards = (gameObj) => {
     titleCards.className = "title-cards"
     title.className = 'title-name'
     savings.className = 'go-green'
-
+    
     //gameCardTile(gameObj)
     title.innerText = gameObj.title
     image.src = gameObj.thumb
@@ -100,9 +98,7 @@ const renderCards = (gameObj) => {
     savings.innerText = `Total Savings $${(gameObj.normalPrice-gameObj.salePrice).toFixed(2)}`
     
     titleCards.append(title, image, salePrice, savings, price)
-    console.log(gameObj)
 }
-
 
 const renderList = (gameObj) => {
     const list = document.getElementById('list')
@@ -147,20 +143,7 @@ const randomIndex = (array) => {
 //     const x = 'Holy smokes, what did you think of this game?!'
 //     const y = `Gee Whilikers, I can't believe this outsold Contra!`
 //     const z = `Where's the beef? Where's the beef? It's in the game!"`
-
 // }
-
 
 // Ideas for tomorrow, add the like button, if the submit form is empty do not create an empty li, make our own json database to hold reviews and likes, get everything on cards
 // light orange FDD09F, red CB6555, blue B9DDD6, yellow FAE0A8, black 3A3D3C, green B6BF9D
-
-// const createCardElements = () => {
-//     const title = document.createElement('h3')
-//     const image = document.createElement('img')
-//     const price = document.createElement('h5')
-//     const salePrice = document.createElement('h2')
-//     const savings = document.createElement('h4')
-//     const titleCards = document.createElement('div')
-//     titleCards.className = "title-cards"
-//     return title, image, price, salePrice, savings, titleCards
-// }
